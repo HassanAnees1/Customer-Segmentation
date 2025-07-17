@@ -1,116 +1,190 @@
-# Customer Segmentation Predictor
+---
+title: Customer Segmentation
+emoji: 🛍️
+colorFrom: pink
+colorTo: indigo
+sdk: gradio
+sdk_version: "4.26.0"
+app_file: app.py
+pinned: false
+---
 
-A machine learning application that predicts customer segments based on age, annual income, and spending score using K-Means clustering.
+# 🛍️ Customer Segmentation Predictor
+
+A machine learning web application that segments mall customers based on their age, annual income, and spending score using the K-Means clustering algorithm.
+
+---
 
 ## 🎯 Features
 
-- **Interactive Web Interface**: Built with Gradio for easy use
-- **Real-time Predictions**: Instant customer segment classification
-- **Five Customer Categories**: Comprehensive segmentation system
-- **User-friendly Design**: Intuitive sliders and clear descriptions
+- ✅ **Interactive Interface** – Built with Gradio
+- 📊 **Real-Time Visualization** – Adjust number of clusters and instantly view groupings
+- 📁 **Uses Clean Dataset** – Mall customer data with 5 useful features
+- 📉 **Unsupervised Learning** – No labels required
+- 💡 **Cluster Insights** – Understand customer behaviors visually
 
-## 🛍️ Customer Segments
+---
 
-The model classifies customers into five distinct categories:
+## 🛍️ Customer Segments (Example Labels)
 
-1. **Standard** - Average income and spending patterns
-2. **Careful** - Low income, low spending (budget-conscious customers)
-3. **Target** - High income, high spending (premium customers)
-4. **Careless** - High income, low spending (potential for growth)
-5. **Sensible** - Low income, high spending (value-seekers)
+The app segments customers into distinct clusters. When using 5 clusters, these can be interpreted as:
+
+1. **Standard** – Average income and spending
+2. **Careful** – Low income, low spending
+3. **Target** – High income, high spending (ideal for marketing)
+4. **Careless** – High income, low spending (untapped opportunity)
+5. **Sensible** – Low income, high spending (value-oriented)
+
+> 💬 *These labels are suggestive only. Actual segmentation is based on KMeans output and may vary.*
+
+---
 
 ## 🚀 Quick Start
 
-### Online Demo
-Try the live demo: [Hugging Face Space](https://huggingface.co/spaces/YOUR_USERNAME/customer-segmentation)
+### 🔗 Try the Live App
 
-### Local Installation
+👉 [Launch on Hugging Face Spaces](https://huggingface.co/spaces/HassanAnees1/Customer-Segmentation)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/customer-segmentation-predictor.git
-   cd customer-segmentation-predictor
-   ```
+### 🖥️ Run Locally
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. Clone the repository:
 
-3. **Run the application**
-   ```bash
-   python app.py
-   ```
+```bash
+git clone https://github.com/HassanAnees1/Customer-Segmentation.git
+cd Customer-Segmentation
+````
 
-4. **Open your browser** and navigate to `http://localhost:7860`
+2. Install dependencies:
 
-## 📊 Model Details
+```bash
+pip install -r requirements.txt
+```
 
-- **Algorithm**: K-Means Clustering
-- **Features**: Age, Annual Income, Spending Score
-- **Preprocessing**: StandardScaler for feature normalization
-- **Clusters**: 5 distinct customer segments
+3. Launch the app:
 
-## 🔧 Technical Stack
+```bash
+python app.py
+```
 
-- **Frontend**: Gradio
-- **Machine Learning**: scikit-learn
-- **Data Processing**: NumPy, Pandas
-- **Model Persistence**: joblib
+4. Open your browser and go to:
+
+```
+http://localhost:7860
+```
+
+---
+
+## 📊 Model Information
+
+| Component              | Description                              |
+| ---------------------- | ---------------------------------------- |
+| **Model**              | KMeans (scikit-learn)                    |
+| **Type**               | Unsupervised                             |
+| **Features**           | Age, Annual Income (k\$), Spending Score |
+| **Preprocessing**      | StandardScaler (normalization)           |
+| **Number of Clusters** | Adjustable (default = 5)                 |
+
+---
+
+## 🧰 Tech Stack
+
+* 🧠 **Machine Learning**: `scikit-learn`
+* 🖼️ **Frontend**: `Gradio`
+* 📊 **Visualization**: `matplotlib`, `seaborn`
+* 📂 **Data Handling**: `pandas`, `numpy`
+* 💻 **Platform**: Hugging Face Spaces
+
+---
 
 ## 📁 Project Structure
 
 ```
-customer-segmentation-predictor/
-├── app.py                 # Main Gradio application
+Customer-Segmentation/
+├── app.py                 # Gradio app file
+├── Mall_Customers.csv     # Dataset file
+├── kmeans_model.pkl       # (Optional) Pre-trained KMeans model
+├── README.md              # This documentation
+├── LICENSE                # MIT License file
 ├── requirements.txt       # Python dependencies
-├── scaler.pkl            # Trained StandardScaler
-├── kmeans_model.pkl      # Trained K-Means model
-├── README.md             # Project documentation
-└── .gitignore           # Git ignore file
+├── HF_README.md           # Optional Hugging Face config
+├── DEPLOYMENT_GUIDE.md    # Deployment instructions
+└── Custumer.ipynb         # Jupyter notebook (exploration & EDA)
 ```
-
-## 🎮 Usage
-
-1. **Age**: Select customer age (18-70 years)
-2. **Annual Income**: Set income in thousands of dollars (15-137k)
-3. **Spending Score**: Choose spending behavior score (1-100)
-4. **Get Prediction**: View the predicted customer segment
-
-## 📈 Example Predictions
-
-| Age | Income | Spending | Predicted Segment |
-|-----|--------|----------|------------------|
-| 25  | 40k    | 80       | Sensible         |
-| 45  | 100k   | 30       | Careless         |
-| 35  | 60k    | 60       | Standard         |
-| 55  | 25k    | 85       | Sensible         |
-| 30  | 80k    | 75       | Target           |
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Dataset: Customer segmentation data
-- Framework: Gradio for the web interface
-- ML Library: scikit-learn for clustering algorithms
-
-## 📞 Contact
-
-- **GitHub**: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- **LinkedIn**: [Your Name](https://linkedin.com/in/yourprofile)
-- **Email**: your.email@example.com
 
 ---
 
-⭐ If you found this project helpful, please give it a star on GitHub!
+## 🧪 How to Use the App
+
+1. **Select number of clusters (2 to 10)** using the slider.
+2. The app runs KMeans clustering on the dataset.
+3. Customers are segmented and visualized by:
+
+   * **Annual Income** (X-axis)
+   * **Spending Score** (Y-axis)
+   * **Color-coded clusters**
+
+---
+
+## 📈 Example Cluster Assignments
+
+| Age | Income (k\$) | Spending Score | Cluster   |
+| --- | ------------ | -------------- | --------- |
+| 25  | 40           | 80             | Cluster 4 |
+| 45  | 100          | 30             | Cluster 2 |
+| 35  | 60           | 60             | Cluster 0 |
+| 55  | 25           | 85             | Cluster 3 |
+| 30  | 80           | 75             | Cluster 1 |
+
+---
+
+## 🔧 Advanced Features (coming soon)
+
+* Upload your own dataset 📤
+* Export clustered results as CSV 📁
+* Customize color palette 🎨
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Follow these steps:
+
+```bash
+# 1. Fork the repo
+# 2. Create a branch
+git checkout -b feature/amazing-feature
+
+# 3. Commit your changes
+git commit -m "Add amazing feature"
+
+# 4. Push and open PR
+git push origin feature/amazing-feature
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+See the [LICENSE](LICENSE) file for full details.
+
+---
+
+## 🙏 Acknowledgments
+
+* Dataset: [Mall Customer Dataset](https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial-in-python)
+* ML: `scikit-learn`
+* UI: `Gradio`
+* Hosting: `Hugging Face Spaces`
+
+---
+
+## 📞 Contact
+
+* 📧 Email: [hassananees188@gmail.com](mailto:hassananees188@gmail.com)
+* 🔗 LinkedIn: [Hassan Elzeny](https://linkedin.com/in/hassan-elzeny)
+* 🐙 GitHub: [@HassanAnees1](https://github.com/HassanAnees1)
+
+---
+
+⭐ **If you like this project, give it a ⭐ star on GitHub!**
